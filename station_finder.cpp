@@ -3,6 +3,7 @@
 #include <string.h>
 #include <cstring>
 #include <iomanip>
+#include <ctime.h> // to get system local date and time
 
 using namespace std;
 
@@ -151,6 +152,7 @@ public:
 			cout<<ending;
 			cout<<"\n\nPlease board the train moving towards Rithala from platform number 1"<<endl;
 			cout<<"\nYour total fare will be Rs. "<<(((no_of_stations)*15)>50) ? (50) : (no_of_stations*15);
+		        cout<<"\n Booking Date and Time : "<< dt << endl;  // booking date and time printing
 		}
 		else
         {
@@ -159,7 +161,8 @@ public:
 			cout<<"\n\nEnding Station: ";
 			cout<<ending;
 			cout<<"\n\nPlease board the train moving towards Dilshad Garden from platform number 2"<<endl;
-			cout<<"\nYour total fare will be Rs. "<<(((-no_of_stations)*15)>50) ? (50) : (-no_of_stations*15);;
+			cout<<"\nYour total fare will be Rs. "<<(((-no_of_stations)*15)>50) ? (50) : (-no_of_stations*15);
+			cout<<"\n Booking Date and Time : "<< dt << endl;  // booking date and time printing
         }
 	}
 };
@@ -167,6 +170,9 @@ public:
 int main()
 {
 	clrscr();
+	time_t now = time(0);            // for date and time
+        char* dt = ctime(&now);
+   
 	metroline red("red"),yellow("yellow");
 	int choice,ch;
 	char char_choice;
